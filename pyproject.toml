@@ -1,0 +1,22 @@
+[project]
+name = "tvbro-mcp"
+version = "0.1.0"
+description = "MCP server (stdio) exposing the TV Bro GeckoView browser on the projector via Firefox RDP over adb"
+readme = "README.md"
+authors = [
+    { name = "Alex", email = "hemoon@outlook.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.2.0,<2",  # SPEC: 官方 python-sdk 的 FastMCP（2.x 改名为 MCPServer）
+]
+
+[project.scripts]
+tvbro-mcp = "tvbro_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tvbro_mcp"]
